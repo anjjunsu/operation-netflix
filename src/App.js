@@ -1,25 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState } from 'react';
 
 function App() {
+  const [minutes, setMinutes] = useState();
+
+  const onChange = (event) => {
+    setMinutes(event.target.value);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+        <h1>Converter</h1>
+        <label htmlFor="mins">Minutes</label>
+        <input 
+            id="mins" 
+            value={minutes}
+            placeholder="Minutes" 
+            type="number"
+            onChange={onChange}/>
+        <span>Your minutes: {minutes}</span>
+        <label htmlFor="hrs">Hours</label>
+        <input id="hrs" placeholder="Hours" type="number"/>
     </div>
   );
 }
 
 export default App;
+
